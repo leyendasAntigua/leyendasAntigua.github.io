@@ -2,71 +2,153 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Mi Restaurante | Inicio</title>
-  <link rel="stylesheet" href="css/estilos.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Leyendas Antigua | Inicio</title>
+  <!-- Hoja de estilos global -->
+  <link rel="stylesheet" href="css/estilos.css" />
+
   <style>
+    /* --- Reset y estructura básica --- */
+    body, html { margin: 0; padding: 0; overflow-x: hidden; }
+    header {
+      position: relative;
+      z-index: 10;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+      background: #fff;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    }
+    nav a {
+      margin-left: 20px;
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+    }
+    nav a:hover { color: #C74C4C; }
+
+    /* --- HERO con carrusel detrás --- */
     .hero {
       height: 100vh;
-      background: url('https://your-image-url.jpg') no-repeat center center/cover;
+      position: relative;
       display: flex;
       justify-content: center;
       align-items: center;
       text-align: center;
-      color: white;
-      position: relative;
+      color: #fff;
+      overflow: hidden;
+    }
+    /* Contenedor de imágenes de fondo */
+    .carousel-bg {
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+    }
+    .carousel-bg img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+    .carousel-bg img.active { opacity: 1; }
+    /* Capa oscura para legibilidad */
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: -1;
     }
 
+    /* Texto y botones */
+    .hero-content { position: relative; z-index: 1; }
     .hero h1 {
       font-size: 4em;
-      background-color: rgba(0,0,0,0.5);
-      padding: 20px;
-      border-radius: 10px;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 20px 30px;
+      border-radius: 12px;
     }
-
-    .btns {
-      margin-top: 20px;
-    }
-
+    .btns { margin-top: 30px; }
     .btns a {
       margin: 10px;
-      padding: 12px 25px;
+      padding: 12px 28px;
       background: #C74C4C;
-      color: white;
+      color: #fff;
       text-decoration: none;
-      border-radius: 5px;
+      border-radius: 6px;
       font-weight: bold;
       transition: background 0.2s;
+      display: inline-block;
+    }
+    .btns a:hover { background: #a93a3a; }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #eee;
+      position: relative;
+      z-index: 10;
     }
 
-    .btns a:hover {
-      background: #a93a3a;
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 2.4em; }
+      .btns a { padding: 10px 20px; }
     }
   </style>
 </head>
 <body>
-
-<header>
-  <div><strong>Leyendas Antigua</strong></div>
-  <nav>
-    <a href="sobre.html">Sobre Nosotros</a>
-    <a href="menu.html">Menú</a>
-  </nav>
-</header>
-
-<div class="hero">
-  <div>
-    <h1>Leyendas Antigua</h1>
-    <div class="btns">
+  <!-- NAVBAR -->
+  <header>
+    <div><strong>Leyendas Antigua</strong></div>
+    <nav>
       <a href="sobre.html">Sobre Nosotros</a>
-      <a href="menu.html">Ver Menú</a>
+      <a href="menu.html">Menú</a>
+    </nav>
+  </header>
+
+  <!-- HERO / PORTADA -->
+  <section class="hero">
+    <!-- Carrusel de fondo -->
+    <div class="carousel-bg">
+      <img src="images/photo1.jpg" alt="Foto 1" class="active" />
+      <img src="images/photo2.jpg" alt="Foto 2" />
+      <img src="images/photo3.jpg" alt="Foto 3" />
     </div>
-  </div>
-</div>
 
-<footer>
-  &copy; 2025 Mi Restaurante. Todos los derechos reservados.
-</footer>
+    <!-- Contenido principal -->
+    <div class="hero-content">
+      <h1>Leyendas Antigua</h1>
+      <div class="btns">
+        <a href="sobre.html">Sobre Nosotros</a>
+        <a href="menu.html">Ver Menú</a>
+      </div>
+    </div>
+  </section>
 
+  <!-- FOOTER -->
+  <footer>
+    &copy; 2025 Leyendas Bistro Bar . Todos los derechos reservados.
+  </footer>
+
+  <!-- Script del carrusel -->
+  <script>
+    const slides = document.querySelectorAll('.carousel-bg img');
+    let current = 0;
+
+    function showSlide(next) {
+      slides[current].classList.remove('active');
+      current = next;
+      slides[current].classList.add('active');
+    }
+
+    setInterval(() => {
+      const nextIndex = (current + 1) % slides.length;
+      showSlide(nextIndex);
+    }, 5000);
+  </script>
 </body>
 </html>
