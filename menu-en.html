@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Menú | Leyendas Antigua</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #fff;
+      color: #333;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+      background: #fff;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+
+    .logo { height: 60px; }
+
+    nav a {
+      margin-left: 20px;
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: #C74C4C;
+    }
+
+    .intro {
+      text-align: center;
+      max-width: 800px;
+      margin: 60px auto 30px;
+      font-size: 1.2rem;
+      line-height: 1.8;
+      padding: 0 20px;
+    }
+
+    .menu-title {
+      background: url('./images/menu1.jpg') center center/cover no-repeat;
+      padding: 100px 20px 60px;
+      text-align: center;
+      color: white;
+      text-shadow: 1px 1px 6px rgba(0,0,0,0.6);
+    }
+
+    .menu-title h1 {
+      font-size: 3.5em;
+      margin: 0;
+    }
+
+    .menu-section {
+      background: url('images/menu-bg.jpg') center center/cover no-repeat;
+      padding: 60px 20px;
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 40px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .menu-item {
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      background: rgba(255,255,255,0.95);
+    }
+
+    .menu-item img {
+      width: 100%;
+      height: 220px;
+      object-fit: contain;
+    }
+
+    .menu-item h3 {
+      margin: 20px 20px 10px;
+      font-size: 1.4rem;
+    }
+
+    .menu-item p {
+      margin: 0 20px 20px;
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+    
+     .info-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #C74C4C;
+      color: #fff;
+      border: none;
+      padding: 12px 18px;
+      font-size: 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      z-index: 999;
+    }
+    .info-popup {
+      position: fixed;
+      bottom: 70px;
+      right: 20px;
+      background: #fff;
+      color: #333;
+      padding: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      border-radius: 10px;
+      width: 280px;
+      font-size: 0.95rem;
+      display: none;
+      z-index: 1000;
+    }
+    .info-popup a { color: #C74C4C; text-decoration: none; }
+    .info-popup a:hover { text-decoration: underline; }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #eee;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div><img src="images/logo.png" alt="Leyendas Antigua logo" class="logo" /></div>
+    <nav>
+      <a href="home.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="menu.html">ES</a>
+    </nav>
+  </header>
+
+
+
+<section class="menu-title">
+    <h1>Menu</h1>
+    <section class="intro">
+      <p>
+        Dive into the magic of Leyendas, where legends are sipped more than read. Here, stories come alive, and you become the protagonist of an endless adventure.
+        Cheers to the legends of Guatemala and the magic that lives in every corner of this place!
+      </p>
+      <p>* Cocktail presentation may vary.</p>
+    </section>
+  </section>
+
+  <section class="menu-section">
+    <div class="menu-grid">
+      <div class="menu-item">
+        <img src="images/plato1.jpg" alt="Drink 1" />
+        <h3>Corazón del Cielo Azul</h3>
+        <p>A liquid celebration of Guatemala's independence. This cocktail captivates with a vibrant blend of gin and blue curaçao, evoking the color of our flag.
+          The freshness of lemon adds a citrusy touch, while a delicate foam crowns the drink with softness and sophistication.
+          Each sip pays tribute to freedom and the mysticism of our land, where legends blend with history.
+        </p>
+      </div>
+
+      <div class="menu-item">
+        <img src="images/plato2.jpg" alt="Drink 2" />
+        <h3>El beso del demonio</h3>
+        <p>A cocktail that immerses you in mystery and forbidden pleasure. Tequila and vodka intertwine in a fiery embrace, while lemon and passion fruit deliver a tropical explosion.
+          Pineapple juice softens the spell, leaving a sweet and tempting trace. A golden and seductive elixir inspired by Guatemala's dark legends.
+        </p>
+      </div>
+
+      <div class="menu-item">
+        <img src="images/lagrimas_llorona.jpg" alt="Drink 3" />
+        <h3>Lágrimas de la Llorona</h3>
+        <p>Under the full moon, in the shadows of lost rivers, fall the sweet tears of La Llorona, each drop a blend of nostalgia and delight.
+          A mysterious embrace of vodka and amaretto, wrapped in cool mint chocolate, with lemon and orange citrus to awaken the senses.
+          A soft foam is added, like the very tears of La Llorona, perfect for those who seek comfort in sweetness and legend.
+        </p>
+      </div>
+
+      <div class="menu-item">
+        <img src="images/manto_siguanaba.jpg" alt="Drink 4" />
+        <h3>El manto de la Siguanaba</h3>
+        <p>Smoky mezcal meets the floral delicacy of Saint Germain, highlighted by tropical pineapple, fresh lemon, and golden cardamom.
+          A dark and mysterious cocktail that evokes the enigmatic presence of the Siguanaba in every sip.
+        </p>
+      </div>
+
+      <div class="menu-item">
+        <img src="images/barco_tatuana.jpg" alt="Drink 5" />
+        <h3>El barco de la Tatuana</h3>
+        <p>A journey of exceptional flavors begins with distinctive Jameson whiskey mixed with Bianco vermouth.
+          This cocktail sets sail toward the charm of La Tatuana.
+        </p>
+      </div>
+
+      <div class="menu-item">
+        <img src="images/plato3.jpg" alt="Drink 6" />
+        <h3>El espíritu del Cadejo</h3>
+        <p>This elixir blends the warmth of rum with the mystery of Campari, balanced by fresh pineapple juice and the vibrant touch of lemon juice.
+          Saint Germain adds a subtle floral fragrance, elevating each sip to a golden dawn. The intense orange hue recalls the first rays of sun that light up mythical Xibalbá.
+        </p>
+      </div>
+
+      <div class="menu-item">
+        <img src="images/beso_siguanaba.jpg" alt="Drink 7" />
+        <h3>El beso de la Siguanaba</h3>
+        <p>
+          An intriguing cocktail blending gin infused with blue tea flower and gin infused with laurel, enriched with blue tea infusion and the sweetness of Oleo Saccharum.
+          A kiss that evokes the mysterious presence of the Siguanaba.
+        </p>
+      </div>
+
+      <div class="menu-item">
+        <img src="images/ruta_cadejo.jpg" alt="Drink 8" />
+        <h3>La ruta del Cadejo Negro</h3>
+        <p>
+          A fascinating cocktail combining smooth Monkey Shoulder whiskey with banana cream and the depth of Amaro Montenegro.
+          Clarified peanut butter gives it a unique texture and a nutty touch.
+        </p>
+      </div>
+
+      <div class="menu-item">
+        <img src="images/cadejo_blanco.jpg" alt="Drink 9" />
+        <h3>La ruta del Cadejo Blanco</h3>
+        <p>This intriguing cocktail mixes elegant Beefeater 24 gin with Vermouth di Torino and the complexity of Cynar.
+          Lemon juice adds a fresh citrusy touch, while Bitter Orleans brings depth and mystery.
+        </p>
+      </div>
+
+      <div class="menu-item">
+        <img src="images/sombreron_enamorado.jpg" alt="Drink 10" />
+        <h3>El Sombrerón enamorado</h3>
+        <p>An intriguing blend of vodka and Frangelico, enhanced by lemon juice and the sweetness of violet cream.
+          Hazelnut falernum and neutral syrup add complexity and balance for a captivating flavor experience.
+        </p>
+      </div>
+
+      <div class="menu-item">
+        <img src="images/penitencia_llorona.jpg" alt="Drink 11" />
+        <h3>La penitencia de la Llorona</h3>
+        <p>
+          A bold fusion of young mezcal and Cucha, with a citrusy lemon touch and the mystery of Falernum #2.
+          Syrup and clarified apple juice balance and soften this flavorful experience, creating a tempting penance in every sip.
+        </p>
+      </div>
+
+      <div class="menu-item">
+        <img src="images/penitente.jpg" alt="Drink 12" />
+        <h3>El Penitente Clásico</h3>
+        <p>
+          A smoky mix of whiskey, amaretto, Cocchi Bianco, and hazelnut syrup.
+          An intriguing cocktail that evokes penance with its deep smoky flavor, bittersweet notes, and subtle spice.
+        </p>
+      </div>
+
+      <div class="menu-item">
+        <img src="images/plato3.jpg" alt="Drink 13" />
+        <h3>Entre Volcanes</h3>
+        <p>Among burning volcanoes, where fire rises, a heady aroma hides—whiskey, lemon, and lava.
+          The golden, aged liquor mixes with citrus juice, creating a dance of flavors that leaves mysticism on your lips.
+        </p>
+      </div>
+
+      <div class="menu-list-tile">
+        <h3>Classic Cocktails:</h3>
+        <ul>
+          <li>Cuba Libre</li>
+          <li>Aperitivo Spritz</li>
+          <li>Moscow Mule</li>
+          <li>Jagerbomb</li>
+          <li>Margarita Leyendas</li>
+          <li>Red Berries Gin</li>
+          <li>Negroni</li>
+          <li>Perfect Gin Tonic</li>
+          <li>Old Fashioned</li>
+          <li>Manhattan</li>
+          <li>Boulevardier</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+
+    
+  </section>
+  <button class="info-btn" onclick="toggleInfo()">ℹ️ Info</button>
+  <div class="info-popup" id="infoBox">
+    <p><strong>Address:</strong><br> 4a. Calle Oriente No.10 - Sotano Casa El Jaulon, Antigua Guatemala</p>
+    <p><strong>Google Maps:</strong><br><a href="https://www.google.com/maps?q=14.5574,-90.73226" target="_blank">See location</a></p>
+    <p><strong>Wi-Fi:</strong><br> La Red de la Tatuana | Password: latatuana</p>
+    <p><strong>Phone:</strong><br> <a href="tel:+50212345678">+502 4712 8155</a></p>
+    <p><strong>Instagram:</strong><br> <a href="https://www.instagram.com/leyendasantigua/" target="_blank">@leyendasantigua</a></p>
+  </div>
+
+
+  <footer>
+    &copy; 2025 Leyendas Bistro Bar. All rights reserved.
+  </footer>
+</body>
+</html>
+
+  <script>
+    // Toggle info popup
+    function toggleInfo(){
+      const box = document.getElementById('infoBox');
+      box.style.display = (box.style.display === 'block') ? 'none' : 'block';
+    }
+
+    // Cerrar popup al hacer clic fuera de él
+    document.addEventListener('click', e => {
+      const box = document.getElementById('infoBox');
+      if(box.style.display === 'block' && !box.contains(e.target) && !e.target.classList.contains('info-btn')){
+        box.style.display = 'none';
+      }
+    });
+  </script>
+</body>
+</html>
