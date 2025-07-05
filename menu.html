@@ -2,99 +2,119 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Menú | Leyendas Antigua</title>
   <style>
-    body {
-      font-family: sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #fff;
-      color: #333;
-    }
-
+   body, html { margin: 0; padding: 0; overflow-x: hidden; }
     header {
+      position: relative;
+      z-index: 10;
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 15px 30px;
       background: #fff;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
     }
-
-    .logo { height: 60px; }
-
+    .logo { height: 60px; width: 90px; }
+    @media(max-width:600px){ .logo{height:45px} }
     nav a {
       margin-left: 20px;
       text-decoration: none;
       color: #333;
       font-weight: bold;
     }
-
-    nav a:hover {
-      color: #C74C4C;
-    }
-
-    .intro {
-      text-align: center;
-      max-width: 800px;
-      margin: 60px auto 30px;
-      font-size: 1.2rem;
-      line-height: 1.8;
-      padding: 0 20px;
-    }
+    nav a:hover { color: #C74C4C; }
 
     .menu-title {
-      background: url('./images/menu1.jpg') center center/cover no-repeat;
-      padding: 100px 20px 60px;
+      padding: 70px 20px 30px;
       text-align: center;
-      color: white;
-      text-shadow: 1px 1px 6px rgba(0,0,0,0.6);
     }
-
     .menu-title h1 {
-      font-size: 3.5em;
-      margin: 0;
+      font-size: 3rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: white;
+    }
+    .intro {
+      max-width: 800px;
+      margin: 0 auto 40px;
+      text-align: center;
+      font-size: 1.1rem;
+      line-height: 1.7;
+      padding: 0 20px;
+      color: white;
     }
 
-    .menu-section {
-      background: url('images/menu-bg.jpg') center center/cover no-repeat;
-      padding: 60px 20px;
-    }
-
+    .menu-title{padding:70px 20px 30px;text-align:center;background:url('images/menu1.jpg')center/cover no-repeat}
+    .menu-title h1{font-size:3rem;letter-spacing:2px;text-transform:uppercase;color:#fff}
+    .intro{max-width:800px;margin:0 auto 40px;text-align:center;font-size:1.1rem;line-height:1.7;padding:0 20px;color:#fff}
     .menu-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 40px;
-      max-width: 1200px;
-      margin: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 40px;
+    max-width: 1200px;
+    margin: 60px auto 0;
+    padding: 0 20px 80px;
     }
 
-    .menu-item {
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-      background: rgba(255,255,255,0.95);
+    .flip-card {
+        cursor: pointer;
+        perspective: 1000px;
+        height: 380px;
     }
 
-    .menu-item img {
-      width: 100%;
-      height: 220px;
-      object-fit: contain;
+    .flip-card-inner {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        transition: transform 0.8s;
+        transform-style: preserve-3d;
+        border-radius: 15px;
+        box-shadow: 0 4px 14px rgba(0,0,0,0.25);
     }
 
-    .menu-item h3 {
-      margin: 20px 20px 10px;
-      font-size: 1.4rem;
+    .flip-card:hover .flip-card-inner {
+        transform: rotateY(180deg);
     }
 
-    .menu-item p {
-      margin: 0 20px 20px;
-      font-size: 1rem;
-      line-height: 1.6;
+    .flip-card-front, .flip-card-back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        -webkit-backface-visibility: hidden; /* Safari */
+        backface-visibility: hidden;
+        border-radius: 15px;
+        background-size: cover;
+        background-position: center;
     }
-    
-     .info-btn {
+
+    .flip-card-back {
+        transform: rotateY(180deg);
+        color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: 20px;
+        background-color: rgba(0,0,0,0.5);
+        background-blend-mode: overlay;
+    }
+
+    .flip-card-back h3 {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+        position: relative;
+        z-index: 2;
+    }
+
+    .flip-card-back p {
+        font-size: 1rem;
+        position: relative;
+        z-index: 2;
+    }
+
+    .info-btn {
       position: fixed;
       bottom: 20px;
       right: 20px;
@@ -142,121 +162,165 @@
     </nav>
   </header>
 
-
-
-  <section class="menu-title">
+  <section class="menu-title" style="background: url('images/menu1.jpg') center/cover no-repeat;">
     <h1>Menú</h1>
     <section class="intro">
-    <p>
-       Sumérgete en la magia de Leyendas donde las leyendas se beben más que se leen.
-      Aquí, las historias cobran vida, y tú eres el protagonista de esa aventura sin fin. 
-      ¡Salud a las leyendas de Guatemala y a la magia que vive en cada rincón de este lugar!
-    </p><p>
-	* La presentación del coctel puede variar.
-    </p>
-  </section>
+      <p>
+        Sumérgete en la magia de Leyendas donde las leyendas se beben más que se leen.
+        Aquí, las historias cobran vida, y tú eres el protagonista de esa aventura sin fin. 
+        ¡Salud a las leyendas de Guatemala y a la magia que vive en cada rincón de este lugar!
+      </p>
+      <p>* La presentación del coctel puede variar.</p>
+    </section>
   </section>
 
-  <section class="menu-section">
-    <div class="menu-grid">
-      <div class="menu-item">
-        <img src="images/plato1.jpg" alt="Trago 1" />
-        <h3>Corazón del Cielo Azul</h3>
-        <p>Una celebración líquida de la independencia de Guatemala. Este cóctel cautiva con una mezcla vibrante de gin y curaçao azul, evocando el color de nuestra bandera. 
-            La frescura del limón le aporta un toque cítrico que despierta los sentidos, mientras que una delicada espuma corona la bebida, dándole una textura suave y un toque de sofisticación. 
-            Cada sorbo es un homenaje a la libertad y el misticismo de nuestra tierra, donde las leyendas se mezclan con la historia. Perfecto para brindar por la patria con estilo y tradición.</p>
+  <section class="menu-grid">
+    <div class="flip-card">
+        <div class="flip-card-inner">
+            <div class="flip-card-front" style="background-image: url('images/photo1.jpg')"></div>
+            <div class="flip-card-back" style="background-image: url('images/photo1.jpg')">
+            <h3>Corazón del Cielo Azul</h3>
+            <p>Una celebración líquida de la independencia de Guatemala. Este cóctel cautiva con una mezcla vibrante de gin y curaçao azul, evocando el color de nuestra bandera. 
+                La frescura del limón le aporta un toque cítrico que despierta los sentidos, mientras que una delicada espuma corona la bebida, dándole una textura suave y un toque de sofisticación. 
+                Cada sorbo es un homenaje a la libertad y el misticismo de nuestra tierra, donde las leyendas se mezclan con la historia. Perfecto para brindar por la patria con estilo y tradición.</p>
+        </div>
       </div>
-      <div class="menu-item">
-        <img src="images/plato2.jpg" alt="Trago 2" />
+    </div>
+    <div class="flip-card">
+        <div class="flip-card-inner">
+            <div class="flip-card-front" style="background-image: url('images/photo1.jpg')"></div>
+            <div class="flip-card-back" style="background-image: url('images/photo1.jpg')">
         <h3>El beso del demonio</h3>
         <p>Un cóctel que te sumerge en el misterio y el placer prohibido. El tequila y el vodka se entrelazan en un abrazo ardiente, minetras el limón y la maracuyá aportan una explosión cítrica y tropical que despierta los sentidos.
             El jugo de piña suaviza el embrujo, dejando un rastro dulce y tentador. 
             Este elixir dorado y seductor es un tributo a las leyendas oscuras de Guatemala, un beso ardiente que te lleva al borde de lo desconocido, donde el placer y el peligro se encuentran.
         </p>
+    </div>
       </div>
-      <div class="menu-item">
-        <img src="images/lagrimas_llorona.jpg" alt="Trago 3" />
+      </div>
+      <div class="flip-card">
+        <div class="flip-card-inner">
+            <div class="flip-card-front" style="background-image: url('images/lagrimas_llorona.jpg')"></div>
+            <div class="flip-card-back" style="background-image: url('images/lagrimas_llorona.jpg')">
         <h3>Las lagrimas de la Llorona</h3>
         <p>Bajo la luna llena, en las sombras de los ríos perdidos, caen las dulces lágrimas de la Llorona, cada gota una mezcla de nostalgia y placer.
             Un dulce y misterioso abrazo de vodka y amaretto, envuelto en el frescor de chocolate menta, con cítricos de limón y naranja que despiertan los sentidos.
             Se añade una espuma suave, como las lágrimas mismas de la Llorona, perfecta para quienes buscan consuelo en lo dulce y lo legendario.
         </p>
       </div>
-      <div class="menu-item">
-        <img src="images/manto_siguanaba.jpg" alt="Trago 4" />
+      </div>
+    </div>
+     <div class="flip-card">
+        <div class="flip-card-inner">
+            <div class="flip-card-front" style="background-image: url('images/manto_siguanaba.jpg')"></div>
+            <div class="flip-card-back" style="background-image: url('images/manto_siguanaba.jpg')">
         <h3>El manto de la Siguanaba</h3>
         <p>El Mezcal ahumado se une a la delicadeza floral de Saint Germain, realzado con piña tropical, limón fresco y cardamomo dorado.
             Un cóctel oscuro y misterioso, que evoca la intrigante presencia de la Siguanaba en cada sorbo.
         </p>
       </div>
-       <div class="menu-item">
-        <img src="images/barco_tatuana.jpg" alt="Trago 5" />
+      </div>
+      </div>
+      <div class="flip-card">
+        <div class="flip-card-inner">
+            <div class="flip-card-front" style="background-image: url('images/barco_tatuana.jpg')"></div>
+            <div class="flip-card-back" style="background-image: url('images/barco_tatuana.jpg')">
         <h3>El barco de la Tatuana</h3>
         <p>Una travesía de sabores excepcionales que comienza con el distintivo Whiskey Jameson que se mezcla con el Vermut Bianco.
             Este cóctel es un viaje que hace zarpar hacia el encanto de la Tatuana.
         </p>
       </div>
-       <div class="menu-item">
-        <img src="images/plato3.jpg" alt="Trago 6" />
+      </div></div>
+      <div class="flip-card">
+        <div class="flip-card-inner">
+            <div class="flip-card-front" style="background-image: url('images/photo1.jpg')"></div>
+            <div class="flip-card-back" style="background-image: url('images/photo1.jpg')">
         <h3>El espiritu del Cadejo</h3>
         <p>Este elixir combina la calidez del ron con el enigma del Campari, equilibrado por la frescura del jugo de piña y el toque vobrante del jugo de limón.
             Saint Germain aporta una fragancia floral sutil, elevando cada sorbo a un amancer dorado. El color naranja intenso evoca los primeros rayos de sol que iluminan la mítica tierra de Xibalbá, invitándote a saborear el despertar de una nueva leyenda.
         </p>
         </div>
-
-        <div class="menu-item">
-        <img src="images/beso_siguanaba.jpg" alt="Trago 7" />
+        </div>
+        </div>
+        <div class="flip-card">
+        <div class="flip-card-inner">
+            <div class="flip-card-front" style="background-image: url('images/beso_siguanaba.jpg')"></div>
+            <div class="flip-card-back" style="background-image: url('images/beso_siguanaba.jpg')">
         <h3>El beso de la Siguanaba</h3>
         <p>
             Un cóctel intrigante que fusiona Gin macerado con flor de té azul y Gin macerado con laurel, enriquecido con infusión de Té Azul y el dulzor de Oleo Saccharun.
             Un beso que evoca la misteriosa presencia de la Siguanaba.
         </p>
         </div>
-               <div class="menu-item">
-        <img src="images/ruta_cadejo.jpg" alt="Trago 8" />
+        </div></div>    
+
+              <div class="flip-card">
+        <div class="flip-card-inner">
+            <div class="flip-card-front" style="background-image: url('images/ruta_cadejo.jpg')"></div>
+            <div class="flip-card-back" style="background-image: url('images/ruta_cadejo.jpg')">
         <h3>La ruta del Cadejo Negro</h3>
         <p>
             Un cóctel fascinante que combina el suave Monkey Shoulder con la dulzura de la crema de bananas y la profundidad del Amaro Montenegro.
             La mantequilla de maní clarificada aporta una textura única y un matiz de nuez.
         </p>
         </div>
-        <div class="menu-item">
-        <img src="images/cadejo_blanco.jpg" alt="Trago 9" />
+        </div>
+        </div>
+        <div class="flip-card">
+        <div class="flip-card-inner">
+            <div class="flip-card-front" style="background-image: url('images/cadejo_blanco.jpg')"></div>
+            <div class="flip-card-back" style="background-image: url('images/cadejo_blanco.jpg')">
         <h3>La ruta del Cadejo Blanco</h3>
         <p>Este intrigante cóctel mezcla la elegancia del Gin Beefeater 24 con el Vermouth di Torino y la complejidad del Cynar.
             El jugo de limón agrega un toque cítrico y fresco, mientras que el Bitter Orleans aporta profundidad y misterio.
         </p>
+        </div>
+        </div>
       </div>
-       <div class="menu-item">
-        <img src="images/sombreron_enamorado.jpg" alt="Trago 10" />
+      <div class="flip-card">
+        <div class="flip-card-inner">
+            <div class="flip-card-front" style="background-image: url('images/sombreron_enamorado.jpg')"></div>
+            <div class="flip-card-back" style="background-image: url('images/sombreron_enamorado.jpg')">
         <h3>El Sombrerón enamorado </h3>
         <p>Una intrigante mezcla de vodka y Frangelico, realzada con el toque cítrico del jugo de limón y la dulzura de la crema de violetas.
             El falerdum de avellanas y el jarabe neutro añaden complejidad y equilibrio, creando una experiencia de sabor cautivadora.
         </p>
       </div>
-       <div class="menu-item">
-        <img src="images/penitencia_llorona.jpg" alt="Trago 11" />
+      </div></div>
+      <div class="flip-card">
+        <div class="flip-card-inner">
+            <div class="flip-card-front" style="background-image: url('images/penitencia_llorona.jpg')"></div>
+            <div class="flip-card-back" style="background-image: url('images/penitencia_llorona.jpg')">
         <h3>La penitencia de la Llorona</h3>
         <p>
             Una fusión audaz de Mezcal Joven y Cucha, con el toque cítrico del limón y el misterio del falerdum #2. 
             Con syrup y el jugo clarificado de manzana suavizan y equilibran esta experienca de sabor, creando una penitencia tentadora en cada sorbo.
         </p>
       </div>
-       <div class="menu-item">
-        <img src="images/penitente.jpg" alt="Trago 12" />
+      </div></div>
+      <div class="flip-card">
+        <div class="flip-card-inner">
+            <div class="flip-card-front" style="background-image: url('images/penitente.jpg')"></div>
+            <div class="flip-card-back" style="background-image: url('images/penitente.jpg')">
         <h3>El Penitente Clásico</h3>
         <p>
             Una mezcla ahumada de whisky, Amaretto, Cocchi Bianco, Sirupe de Avellana. 
             Un cóctel de carácter intrigante que evoca la penitencia con su profundo sabor ahumado, notas agridulces y toque leve de picante.
         </p>
       </div>
-       <div class="menu-item">
-        <img src="images/plato3.jpg" alt="Trago 13" />
+      </div>
+    </div>
+    <div class="flip-card">
+        <div class="flip-card-inner">
+            <div class="flip-card-front" style="background-image: url('images/photo1.jpg')"></div>
+            <div class="flip-card-back" style="background-image: url('images/photo1.jpg')">
         <h3>Entre Volcanes</h3>
         <p>Entre volcanes ardientes, donde el fuego se eleva, se esconde un aroma embriagante, de whisky, limón y lava. 
             El licor dorado y añejo, se mezcla con el jugo cítrico, creando una danza de sabores, ue en los labios deja su místico.
         </p>
       </div>
+      </div>
+    </div>
        <div class="menu-list-tile">
         <h3>Cocteleria Clásica:</h3>
         <ul>
@@ -273,16 +337,16 @@
           <li>Boulevardier</li>
         </ul>
       </div>
-    </div>
-    </div>
-    
+    <!-- Duplicar para más cócteles -->
   </section>
-    <button class="info-btn" onclick="toggleInfo()">ℹ️ Info</button>
+
+    
+  <button class="info-btn" onclick="toggleInfo()">ℹ️ Info</button>
   <div class="info-popup" id="infoBox">
     <p><strong>Dirección:</strong><br> 4a. Calle Oriente No.10 - Sotano Casa El Jaulon, Antigua Guatemala</p>
     <p><strong>Google Maps:</strong><br><a href="https://www.google.com/maps?q=14.5574,-90.73226" target="_blank">Ver ubicación</a></p>
     <p><strong>Wi-Fi:</strong><br> La Red de la Tatuana | Contraseña: latatuana</p>
-    <p><strong>Teléfono:</strong><br> <a href="tel:+50212345678">+502 4712 8155</a></p>
+    <p><strong>Teléfono:</strong><br> <a href="tel:+50247128155">+502 4712 8155</a></p>
     <p><strong>Instagram:</strong><br> <a href="https://www.instagram.com/leyendasantigua/" target="_blank">@leyendasantigua</a></p>
   </div>
 
@@ -291,16 +355,14 @@
   </footer>
 
   <script>
-    // Toggle info popup
     function toggleInfo(){
       const box = document.getElementById('infoBox');
       box.style.display = (box.style.display === 'block') ? 'none' : 'block';
     }
 
-    // Cerrar popup al hacer clic fuera de él
     document.addEventListener('click', e => {
       const box = document.getElementById('infoBox');
-      if(box.style.display === 'block' && !box.contains(e.target) && !e.target.classList.contains('info-btn')){
+      if (box.style.display === 'block' && !box.contains(e.target) && !e.target.classList.contains('info-btn')) {
         box.style.display = 'none';
       }
     });
