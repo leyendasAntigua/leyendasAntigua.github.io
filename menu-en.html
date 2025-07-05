@@ -2,10 +2,10 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Menú | Leyendas Antigua</title>
   <style>
-    body, html { margin: 0; padding: 0; overflow-x: hidden; }
+   body, html { margin: 0; padding: 0; overflow-x: hidden; }
     header {
       position: relative;
       z-index: 10;
@@ -26,68 +26,96 @@
     }
     nav a:hover { color: #C74C4C; }
 
-    .intro {
-      text-align: center;
-      max-width: 800px;
-      margin: 60px auto 30px;
-      font-size: 1.2rem;
-      line-height: 1.8;
-      padding: 0 20px;
-    }
-
     .menu-title {
-      background: url('./images/menu1.jpg') center center/cover no-repeat;
-      padding: 100px 20px 60px;
+      padding: 70px 20px 30px;
       text-align: center;
-      color: white;
-      text-shadow: 1px 1px 6px rgba(0,0,0,0.6);
     }
-
     .menu-title h1 {
-      font-size: 3.5em;
-      margin: 0;
+      font-size: 3rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: white;
+    }
+    .intro {
+      max-width: 800px;
+      margin: 0 auto 40px;
+      text-align: center;
+      font-size: 1.1rem;
+      line-height: 1.7;
+      padding: 0 20px;
+      color: white;
     }
 
-    .menu-section {
-      background: url('images/menu-bg.jpg') center center/cover no-repeat;
-      padding: 60px 20px;
-    }
-
+    .menu-title{padding:70px 20px 30px;text-align:center;background:url('images/menu1.jpg')center/cover no-repeat}
+    .menu-title h1{font-size:3rem;letter-spacing:2px;text-transform:uppercase;color:#fff}
+    .intro{max-width:800px;margin:0 auto 40px;text-align:center;font-size:1.1rem;line-height:1.7;padding:0 20px;color:#fff}
     .menu-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 40px;
-      max-width: 1200px;
-      margin: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 40px;
+    max-width: 1200px;
+    margin: 60px auto 0;
+    padding: 0 20px 80px;
     }
 
-    .menu-item.modern-style {
-  position: relative;
-  border-radius: 12px;
-  overflow: hidden;
-  height: 320px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-}
+    .flip-card {
+        cursor: pointer;
+        perspective: 1000px;
+        height: 380px;
+        
+    }
 
-.menu-item.modern-style img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
+    .flip-card-inner {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        transition: transform 0.8s;
+        transform-style: preserve-3d;
+        border-radius: 15px;
+        box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+    }
 
-.menu-text-overlay {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
-  color: white;
-  padding: 15px;
-  font-size: 0.95rem;
-  text-shadow: 1px 1px 2px black;
-}
+    .flip-card:hover .flip-card-inner {
+        transform: rotateY(180deg);
+    }
 
-    
-     .info-btn {
+    .flip-card-front, .flip-card-back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        -webkit-backface-visibility: hidden; /* Safari */
+        backface-visibility: hidden;
+        border-radius: 15px;
+        background-size: cover;
+        background-position: center;
+    }
+
+    .flip-card-back {
+        transform: rotateY(180deg);
+        color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: 20px;
+        background-color: rgba(0,0,0,0.5);
+        background-blend-mode: overlay;
+    }
+
+    .flip-card-back h3 {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+        position: relative;
+        z-index: 2;
+    }
+
+    .flip-card-back p {
+        font-size: 1rem;
+        position: relative;
+        z-index: 2;
+    }
+
+    .info-btn {
       position: fixed;
       bottom: 20px;
       right: 20px;
@@ -135,9 +163,7 @@
     </nav>
   </header>
 
-
-
-<section class="menu-title">
+  <section class="menu-title" style="background: url('images/menu1.jpg') center/cover no-repeat;">
     <h1>Menu</h1>
     <section class="intro">
       <p>
@@ -148,140 +174,170 @@
     </section>
   </section>
 
-  <section class="menu-section">
-    <div class="menu-grid">
-      <div class="menu-item">
-        <img src="images/plato1.jpg" alt="Drink 1" />
-        <h3>Corazón del Cielo Azul</h3>
-        <p>A liquid celebration of Guatemala's independence. This cocktail captivates with a vibrant blend of gin and blue curaçao, evoking the color of our flag.
-          The freshness of lemon adds a citrusy touch, while a delicate foam crowns the drink with softness and sophistication.
-          Each sip pays tribute to freedom and the mysticism of our land, where legends blend with history.
-        </p>
-      </div>
+<section class="menu-grid">
+    <!-- Card 1 -->
+    <div class="flip-card">
+        <div class="flip-card-inner">
+            <div class="flip-card-front" style="background-image: url('images/photo1.jpg')"></div>
+            <div class="flip-card-back" style="background-image: url('images/photo1.jpg')">
+                <h3>Corazón del Cielo Azul</h3>
+                <p>A liquid celebration of Guatemala's independence. This cocktail captivates with a vibrant blend of gin and blue curaçao, evoking the colors of our flag. The freshness of lemon adds a citrusy touch that awakens the senses, while a delicate foam crowns the drink, giving it a smooth texture and sophistication. Each sip is a tribute to the freedom and mysticism of our land, where legends blend with history. Perfect for toasting to the homeland with style and tradition.</p>
+            </div>
+        </div>
+    </div>
 
-      <div class="menu-item">
-        <img src="images/plato2.jpg" alt="Drink 2" />
-        <h3>El beso del demonio</h3>
-        <p>A cocktail that immerses you in mystery and forbidden pleasure. Tequila and vodka intertwine in a fiery embrace, while lemon and passion fruit deliver a tropical explosion.
-          Pineapple juice softens the spell, leaving a sweet and tempting trace. A golden and seductive elixir inspired by Guatemala's dark legends.
-        </p>
-      </div>
+    <!-- Card 2 -->
+    <div class="flip-card">
+        <div class="flip-card-inner">
+            <div class="flip-card-front" style="background-image: url('images/photo1.jpg')"></div>
+            <div class="flip-card-back" style="background-image: url('images/photo1.jpg')">
+                <h3>El beso del demonio</h3>
+                <p>A cocktail that immerses you in mystery and forbidden pleasure. Tequila and vodka intertwine in a fiery embrace, while lemon and passionfruit provide a citrusy and tropical explosion. Pineapple juice softens the spell, leaving a sweet and tempting trail. This golden, seductive elixir pays tribute to Guatemala's dark legends—a burning kiss that takes you to the edge of the unknown, where pleasure and danger meet.</p>
+            </div>
+        </div>
+    </div>
 
-      <div class="menu-item">
-        <img src="images/lagrimas_llorona.jpg" alt="Drink 3" />
-        <h3>Lágrimas de la Llorona</h3>
-        <p>Under the full moon, in the shadows of lost rivers, fall the sweet tears of La Llorona, each drop a blend of nostalgia and delight.
-          A mysterious embrace of vodka and amaretto, wrapped in cool mint chocolate, with lemon and orange citrus to awaken the senses.
-          A soft foam is added, like the very tears of La Llorona, perfect for those who seek comfort in sweetness and legend.
-        </p>
-      </div>
+    <!-- Card 3 -->
+    <div class="flip-card">
+        <div class="flip-card-inner">
+            <div class="flip-card-front" style="background-image: url('images/lagrimas_llorona.jpg')"></div>
+            <div class="flip-card-back" style="background-image: url('images/lagrimas_llorona.jpg')">
+                <h3>Las lágrimas de la Llorona</h3>
+                <p>Under the full moon, in the shadows of lost rivers, fall the sweet tears of La Llorona—each drop a blend of nostalgia and pleasure. A sweet and mysterious embrace of vodka and amaretto, wrapped in the freshness of mint chocolate, with citrus notes of lemon and orange that awaken the senses. Topped with a soft foam, like La Llorona's own tears, perfect for those seeking comfort in sweetness and legend.</p>
+            </div>
+        </div>
+    </div>
 
-      <div class="menu-item">
-        <img src="images/manto_siguanaba.jpg" alt="Drink 4" />
-        <h3>El manto de la Siguanaba</h3>
-        <p>Smoky mezcal meets the floral delicacy of Saint Germain, highlighted by tropical pineapple, fresh lemon, and golden cardamom.
-          A dark and mysterious cocktail that evokes the enigmatic presence of the Siguanaba in every sip.
-        </p>
-      </div>
+    <!-- Card 4 -->
+    <div class="flip-card">
+        <div class="flip-card-inner">
+            <div class="flip-card-front" style="background-image: url('images/manto_siguanaba.jpg')"></div>
+            <div class="flip-card-back" style="background-image: url('images/manto_siguanaba.jpg')">
+                <h3>El manto de la Siguanaba</h3>
+                <p>Smoky mezcal meets the floral delicacy of St. Germain, enhanced with tropical pineapple, fresh lemon, and golden cardamom. A dark and mysterious cocktail that evokes the intriguing presence of the Siguanaba in every sip.</p>
+            </div>
+        </div>
+    </div>
 
-      <div class="menu-item">
-        <img src="images/barco_tatuana.jpg" alt="Drink 5" />
-        <h3>El barco de la Tatuana</h3>
-        <p>A journey of exceptional flavors begins with distinctive Jameson whiskey mixed with Bianco vermouth.
-          This cocktail sets sail toward the charm of La Tatuana.
-        </p>
-      </div>
+    <!-- Card 5 -->
+    <div class="flip-card">
+        <div class="flip-card-inner">
+            <div class="flip-card-front" style="background-image: url('images/barco_tatuana.jpg')"></div>
+            <div class="flip-card-back" style="background-image: url('images/barco_tatuana.jpg')">
+                <h3>El barco de la Tatuana</h3>
+                <p>A journey of exceptional flavors beginning with distinctive Jameson whiskey blended with Bianco vermouth. This cocktail is a voyage that sets sail toward the enchantment of La Tatuana.</p>
+            </div>
+        </div>
+    </div>
 
-      <div class="menu-item">
-        <img src="images/plato3.jpg" alt="Drink 6" />
-        <h3>El espíritu del Cadejo</h3>
-        <p>This elixir blends the warmth of rum with the mystery of Campari, balanced by fresh pineapple juice and the vibrant touch of lemon juice.
-          Saint Germain adds a subtle floral fragrance, elevating each sip to a golden dawn. The intense orange hue recalls the first rays of sun that light up mythical Xibalbá.
-        </p>
-      </div>
+    <!-- Card 6 -->
+    <div class="flip-card">
+        <div class="flip-card-inner">
+            <div class="flip-card-front" style="background-image: url('images/photo1.jpg')"></div>
+            <div class="flip-card-back" style="background-image: url('images/photo1.jpg')">
+                <h3>El espíritu del Cadejo</h3>
+                <p>This elixir combines the warmth of rum with the enigma of Campari, balanced by the freshness of pineapple juice and the vibrant touch of lemon juice. St. Germain adds a subtle floral fragrance, elevating each sip to a golden dawn. The intense orange color evokes the first rays of sun illuminating the mythical land of Xibalbá, inviting you to savor the awakening of a new legend.</p>
+            </div>
+        </div>
+    </div>
 
-      <div class="menu-item">
-        <img src="images/beso_siguanaba.jpg" alt="Drink 7" />
-        <h3>El beso de la Siguanaba</h3>
-        <p>
-          An intriguing cocktail blending gin infused with blue tea flower and gin infused with laurel, enriched with blue tea infusion and the sweetness of Oleo Saccharum.
-          A kiss that evokes the mysterious presence of the Siguanaba.
-        </p>
-      </div>
+    <!-- Card 7 -->
+    <div class="flip-card">
+        <div class="flip-card-inner">
+            <div class="flip-card-front" style="background-image: url('images/beso_siguanaba.jpg')"></div>
+            <div class="flip-card-back" style="background-image: url('images/beso_siguanaba.jpg')">
+                <h3>El beso de la Siguanaba</h3>
+                <p>An intriguing cocktail that fuses gin infused with blue tea flower and gin infused with bay leaf, enriched with blue tea infusion and the sweetness of Oleo Saccharum. A kiss that evokes the mysterious presence of the Siguanaba.</p>
+            </div>
+        </div>
+    </div>
 
-      <div class="menu-item">
-        <img src="images/ruta_cadejo.jpg" alt="Drink 8" />
-        <h3>La ruta del Cadejo Negro</h3>
-        <p>
-          A fascinating cocktail combining smooth Monkey Shoulder whiskey with banana cream and the depth of Amaro Montenegro.
-          Clarified peanut butter gives it a unique texture and a nutty touch.
-        </p>
-      </div>
+    <!-- Card 8 -->
+    <div class="flip-card">
+        <div class="flip-card-inner">
+            <div class="flip-card-front" style="background-image: url('images/ruta_cadejo.jpg')"></div>
+            <div class="flip-card-back" style="background-image: url('images/ruta_cadejo.jpg')">
+                <h3>La ruta del Cadejo Negro</h3>
+                <p>A fascinating cocktail combining smooth Monkey Shoulder with the sweetness of banana cream and the depth of Amaro Montenegro. Clarified peanut butter adds a unique texture and nutty nuance.</p>
+            </div>
+        </div>
+    </div>
 
-      <div class="menu-item">
-        <img src="images/cadejo_blanco.jpg" alt="Drink 9" />
-        <h3>La ruta del Cadejo Blanco</h3>
-        <p>This intriguing cocktail mixes elegant Beefeater 24 gin with Vermouth di Torino and the complexity of Cynar.
-          Lemon juice adds a fresh citrusy touch, while Bitter Orleans brings depth and mystery.
-        </p>
-      </div>
+    <!-- Card 9 -->
+    <div class="flip-card">
+        <div class="flip-card-inner">
+            <div class="flip-card-front" style="background-image: url('images/cadejo_blanco.jpg')"></div>
+            <div class="flip-card-back" style="background-image: url('images/cadejo_blanco.jpg')">
+                <h3>La ruta del Cadejo Blanco</h3>
+                <p>This intriguing cocktail blends the elegance of Beefeater 24 gin with Torino vermouth and the complexity of Cynar. Lemon juice adds a fresh citrus touch, while Orleans bitters contribute depth and mystery.</p>
+            </div>
+        </div>
+    </div>
 
-      <div class="menu-item">
-        <img src="images/sombreron_enamorado.jpg" alt="Drink 10" />
-        <h3>El Sombrerón enamorado</h3>
-        <p>An intriguing blend of vodka and Frangelico, enhanced by lemon juice and the sweetness of violet cream.
-          Hazelnut falernum and neutral syrup add complexity and balance for a captivating flavor experience.
-        </p>
-      </div>
+    <!-- Card 10 -->
+    <div class="flip-card">
+        <div class="flip-card-inner">
+            <div class="flip-card-front" style="background-image: url('images/sombreron_enamorado.jpg')"></div>
+            <div class="flip-card-back" style="background-image: url('images/sombreron_enamorado.jpg')">
+                <h3>El Sombrerón enamorado</h3>
+                <p>An intriguing blend of vodka and Frangelico, enhanced by the citrus touch of lemon juice and the sweetness of violet cream. Hazelnut falernum and neutral syrup add complexity and balance, creating a captivating flavor experience.</p>
+            </div>
+        </div>
+    </div>
 
-      <div class="menu-item">
-        <img src="images/penitencia_llorona.jpg" alt="Drink 11" />
-        <h3>La penitencia de la Llorona</h3>
-        <p>
-          A bold fusion of young mezcal and Cucha, with a citrusy lemon touch and the mystery of Falernum #2.
-          Syrup and clarified apple juice balance and soften this flavorful experience, creating a tempting penance in every sip.
-        </p>
-      </div>
+    <!-- Card 11 -->
+    <div class="flip-card">
+        <div class="flip-card-inner">
+            <div class="flip-card-front" style="background-image: url('images/penitencia_llorona.jpg')"></div>
+            <div class="flip-card-back" style="background-image: url('images/penitencia_llorona.jpg')">
+                <h3>La penitencia de la Llorona</h3>
+                <p>A bold fusion of young mezcal and Cucha, with the citrusy touch of lemon and the mystery of falernum #2. Clarified apple juice and syrup soften and balance this flavor experience, creating a tempting penance in every sip.</p>
+            </div>
+        </div>
+    </div>
 
-      <div class="menu-item">
-        <img src="images/penitente.jpg" alt="Drink 12" />
-        <h3>El Penitente Clásico</h3>
-        <p>
-          A smoky mix of whiskey, amaretto, Cocchi Bianco, and hazelnut syrup.
-          An intriguing cocktail that evokes penance with its deep smoky flavor, bittersweet notes, and subtle spice.
-        </p>
-      </div>
+    <!-- Card 12 -->
+    <div class="flip-card">
+        <div class="flip-card-inner">
+            <div class="flip-card-front" style="background-image: url('images/penitente.jpg')"></div>
+            <div class="flip-card-back" style="background-image: url('images/penitente.jpg')">
+                <h3>El Penitente Clásico</h3>
+                <p>A smoky blend of whiskey, Amaretto, Cocchi Bianco, and hazelnut syrup. A cocktail of intriguing character that evokes penance with its deep smoky flavor, sweet-and-sour notes, and a light spicy touch.</p>
+            </div>
+        </div>
+    </div>
 
-      <div class="menu-item">
-        <img src="images/plato3.jpg" alt="Drink 13" />
-        <h3>Entre Volcanes</h3>
-        <p>Among burning volcanoes, where fire rises, a heady aroma hides—whiskey, lemon, and lava.
-          The golden, aged liquor mixes with citrus juice, creating a dance of flavors that leaves mysticism on your lips.
-        </p>
-      </div>
+    <!-- Card 13 -->
+    <div class="flip-card">
+        <div class="flip-card-inner">
+            <div class="flip-card-front" style="background-image: url('images/photo1.jpg')"></div>
+            <div class="flip-card-back" style="background-image: url('images/photo1.jpg')">
+                <h3>Entre Volcanes</h3>
+                <p>Between fiery volcanoes, where fire rises, hides an intoxicating aroma of whiskey, lemon, and lava. The golden aged liquor blends with citrus juice, creating a dance of flavors that leaves its mystique on the lips.</p>
+            </div>
+        </div>
+    </div>
 
-      <div class="menu-list-tile">
+    <!-- Classic Cocktails List -->
+    <div class="menu-list-tile">
         <h3>Classic Cocktails:</h3>
         <ul>
-          <li>Cuba Libre</li>
-          <li>Aperitivo Spritz</li>
-          <li>Moscow Mule</li>
-          <li>Jagerbomb</li>
-          <li>Margarita Leyendas</li>
-          <li>Red Berries Gin</li>
-          <li>Negroni</li>
-          <li>Perfect Gin Tonic</li>
-          <li>Old Fashioned</li>
-          <li>Manhattan</li>
-          <li>Boulevardier</li>
+            <li>Cuba Libre</li>
+            <li>Aperitivo Spritz</li>
+            <li>Moscow Mule</li>
+            <li>Jagerbomb</li>
+            <li>Margarita Leyendas</li>
+            <li>Gin de frutos rojos</li>
+            <li>Negroni</li>
+            <li>Gin Tonic perfect</li>
+            <li>Old Fashion</li>
+            <li>Manhattan</li>
+            <li>Boulevardier</li>
         </ul>
-      </div>
     </div>
-  </section>
+</section>
 
 
-    
-  </section>
   <button class="info-btn" onclick="toggleInfo()">ℹ️ Info</button>
   <div class="info-popup" id="infoBox">
     <p><strong>Address:</strong><br> 4a. Calle Oriente No.10 - Sotano Casa El Jaulon, Antigua Guatemala</p>
@@ -289,29 +345,24 @@
     <p><strong>Wi-Fi:</strong><br> La Red de la Tatuana | Password: latatuana</p>
     <p><strong>Phone:</strong><br> <a href="tel:+50212345678">+502 4712 8155</a></p>
     <p><strong>Instagram:</strong><br> <a href="https://www.instagram.com/leyendasantigua/" target="_blank">@leyendasantigua</a></p>
+    <p><strong>TikTok:</strong><br><a href="https://www.tiktok.com/@leyendasantigua?_t=ZM-8xmG7BvJq3a&_r=1" target="_blank">@leyendasantigua</a></p>
   </div>
-
 
   <footer>
     &copy; 2025 Leyendas Bistro Bar. All rights reserved.
   </footer>
-</body>
-</html>
 
   <script>
-    // Toggle info popup
     function toggleInfo(){
       const box = document.getElementById('infoBox');
       box.style.display = (box.style.display === 'block') ? 'none' : 'block';
     }
 
-    // Cerrar popup al hacer clic fuera de él
     document.addEventListener('click', e => {
       const box = document.getElementById('infoBox');
-      if(box.style.display === 'block' && !box.contains(e.target) && !e.target.classList.contains('info-btn')){
+      if (box.style.display === 'block' && !box.contains(e.target) && !e.target.classList.contains('info-btn')) {
         box.style.display = 'none';
       }
     });
   </script>
-</body>
-</html>
+  
