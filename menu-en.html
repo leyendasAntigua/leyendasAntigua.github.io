@@ -6,18 +6,18 @@
   <title>Menú | Leyendas Antigua</title>
   <style>
    body, html { margin: 0; padding: 0; overflow-x: hidden; }
-    header {
+   header {
       position: relative;
       z-index: 10;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 15px 30px;
+      padding: 30px;
       background: #fff;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
     }
-    .logo { height: 60px; width: 90px; }
-    @media(max-width:600px){ .logo{height:45px} }
+    .logo { height: 35px; width: 100px; } /* Increased logo size */
+    @media(max-width:600px){ .logo{height:60px} } /* Adjusted mobile size */
     nav a {
       margin-left: 20px;
       text-decoration: none;
@@ -27,8 +27,12 @@
     nav a:hover { color: #C74C4C; }
 
     .menu-title {
-      padding: 70px 20px 30px;
+      padding: 70px 20px; /* Removed bottom padding since we removed text */
       text-align: center;
+      min-height: 400px; /* Added fixed height to maintain size */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
     .menu-title h1 {
       font-size: 3rem;
@@ -80,7 +84,7 @@
         transform: rotateY(180deg);
     }
 
-    .flip-card-front, .flip-card-back {
+    .flip-card-front {
         position: absolute;
         width: 100%;
         height: 100%;
@@ -92,12 +96,20 @@
     }
 
     .flip-card-back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        -webkit-backface-visibility: hidden; /* Safari */
+        backface-visibility: hidden;
+        border-radius: 15px;
+        background-size: cover;
+        background-position: center;
         transform: rotateY(180deg);
         color: white;
         display: flex;
         flex-direction: column;
         justify-content: flex-end;
-        padding: 20px;
+      
         background-color: rgba(0,0,0,0.5);
         background-blend-mode: overlay;
     }
@@ -163,16 +175,9 @@
     </nav>
   </header>
 
-  <section class="menu-title" style="background: url('images/menu1.jpg') center/cover no-repeat;">
-    <h1>Menu</h1>
-    <section class="intro">
-      <p>
-        Dive into the magic of Leyendas, where legends are sipped more than read. Here, stories come alive, and you become the protagonist of an endless adventure.
-        Cheers to the legends of Guatemala and the magic that lives in every corner of this place!
-      </p>
-      <p>* Cocktail presentation may vary.</p>
-    </section>
-  </section>
+ <section class="menu-title" style="background: url('images/menu1.jpg') center/cover no-repeat;">
+  <!-- Removed the text content -->
+</section>
 
 <section class="menu-grid">
     <!-- Card 1 -->
